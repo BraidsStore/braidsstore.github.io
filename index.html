@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Braids Store</title>
+<meta name="apple-mobile-web-app-title" content="Braids Store">
+<meta name="application-name" content="Braids Store">
+<meta name="theme-color" content="#ffffff">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<style>
+  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+       background:#fff;font-family:system-ui,-apple-system,sans-serif;color:#222;text-align:center;padding:0 16px}
+  img{width:140px;height:auto} a{color:#c2185b}
+</style>
+</head>
+<body>
+<img src="icon-512.png" alt="Braids Store">
+<p id="msg">Para criar o atalho: toque em <b>Compartilhar</b> e depois em <b>Adicionar à Tela de Início</b>.</p>
+<p><a href="https://braids-store-app.streamlit.app">Abrir o app agora</a></p>
+<script>
+  // Aberto pelo ícone da tela de início (?abrir=1): vai direto para o app.
+  // Aberto normalmente: só prepara o endereço do atalho, sem redirecionar.
+  var APP = "https://braids-store-app.streamlit.app";
+  if (new URLSearchParams(location.search).has("abrir")) {
+    document.getElementById("msg").textContent = "Abrindo o app…";
+    location.replace(APP);
+  } else {
+    history.replaceState(null, "", "?abrir=1");
+  }
+</script>
+</body>
+</html>
